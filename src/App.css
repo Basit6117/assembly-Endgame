@@ -41,7 +41,7 @@ header > .desc{
   background-color: #10A95B;
   color: white;
   border-radius: 6px;
-  /* display: none; */
+  display: none;
 
 }
 .lost-card{
@@ -51,7 +51,6 @@ header > .desc{
   color: white;
   border-radius: 6px;
   padding-bottom: 10px;
-  display: none;
 
 }
 .lang-container{
