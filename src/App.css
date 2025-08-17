@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  padding-block: 50px;
+}
+header{
+  max-width:  500px;
+
+  font-family: 'Founders_Grotesk_X-condensed';
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  padding: 10px 80px;
+}
+main{
+  padding: 60px 0;
+  text-align: center;
+  width: 500px;
+  /* display:flex; */
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  padding-inline: 20px;
+  height: 200px;
+}
+header > h3{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+header > .desc{
+  color: #8E8E8E;
+  font-size: 14px;
+}
+.win-card{
+  width: 450px;
+  height: 70px;
+  background-color: #10A95B;
+  color: white;
+  border-radius: 6px;
+  /* display: none; */
+
+}
+.lost-card{
+  width: 450px;
+  height: 70px;
+  background-color: crimson;
+  color: white;
+  border-radius: 6px;
+  padding-bottom: 10px;
+  display: none;
+
+}
+.lang-container{
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-block: 30px;
+ 
+}
+.lang-chip{
+  width: 78px;
+  padding: 4px;
+   border-radius: 3px;
+}
+
+.span-container{
+    text-align: center;
+    padding-top: 20px;
+}
+.span-container >span{
+    padding:10px 20px;
+    background-color: #323232;
+    border-bottom: 2px solid #F9F4DA;
+    margin: 1.5px;
+}
+.keyboard-container{
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+        width: 100%;
+}
+.keyboard-container > button{
+  background-color: #FCBA29;
+  width: 35px;
+  height: 35px;
+  border-radius: 3px;
+  font-size: 1.12rem;
+  color: black;
+  border: 1px solid #D7D7D7;
+  cursor: pointer;
+
+}
+button.correct{
+  background-color: #10A95B;
+}
+button.wrong{
+  background-color: #EC5D49;
+}
