@@ -25,7 +25,7 @@ main{
   gap: 20px;
   justify-content: center;
   padding-inline: 20px;
-  height: 200px;
+  height: 220px;
 }
 header > h3{
   font-size: 20px;
@@ -54,23 +54,37 @@ header > .desc{
 
 }
 .lang-container{
-  display: flex;
-  justify-content: center ;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 3px;
-  margin-block: 30px;
+     display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    max-width: 350px;
+    margin-bottom: 36px;
+    margin:10px 0 0 40px ;
  
 }
 .lang-chip{
-  width: 78px;
-  padding: 4px;
-   border-radius: 3px;
+    border-radius: 3px;
+    padding: 4.5px;
+    position: relative;;
 }
-
+.lost::before{
+  content: "💀";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
 .span-container{
     text-align: center;
     padding-top: 20px;
+    margin-top: 10px;
 }
 .span-container >span{
     padding:10px 20px;

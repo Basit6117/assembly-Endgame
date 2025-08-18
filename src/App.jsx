@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Lang from "./Lang";
 import { languages } from "./languages";
 import { clsx } from "clsx";
 
@@ -17,13 +16,13 @@ function App() {
   const keyboard = "abcdefghijklmnopqrstuvwxyz";
 
   const langBadges = languages.map((lang, index) => {
+
+    const isLangLost = index < wrongGuessCount
+    const className = clsx("lang-chip", isLangLost && "lost")
     return (
-      <Lang
-        key={index}
-        bgColor={lang.backgroundColor}
-        name={lang.name}
-        color={lang.color}
-      />
+        <span key={index} className={className} style={{backgroundColor:lang.backgroundColor, color:lang.color}}>
+      {lang.name}
+    </span>
     );
   });
   const characters = currentWord.split("").map((char, index) => {
