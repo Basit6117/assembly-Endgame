@@ -3,9 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+.container{
+  height: 100vh;
+  padding: 20px;
 
-body{
-  padding-block: 50px;
 }
 header{
   max-width:  500px;
@@ -14,7 +15,7 @@ header{
   font-weight: 500;
   line-height: 15px;
   text-align: center;
-  padding: 10px 80px;
+  padding: 0px 80px;
 }
 main{
   padding: 60px 0;
@@ -35,24 +36,20 @@ header > .desc{
   color: #8E8E8E;
   font-size: 14px;
 }
-.win-card{
+.game-status{
   width: 450px;
   height: 70px;
-  background-color: #10A95B;
   color: white;
   border-radius: 6px;
-  display: none;
 
 }
-.lost-card{
-  width: 450px;
-  height: 70px;
-  background-color: crimson;
-  color: white;
-  border-radius: 6px;
-  padding-bottom: 10px;
-
+.won{
+   background-color: #10A95B; 
 }
+.loss{
+  background-color: #BA2A2A;
+}
+
 .lang-container{
      display: flex;
     flex-wrap: wrap;
@@ -116,4 +113,16 @@ button.correct{
 }
 button.wrong{
   background-color: #EC5D49;
+}
+.newGame-btn{
+  width: 255px;
+  height: 40px;
+  background-color: #11B5E5;
+  border: 1px solid #D7D7D7;
+  border-radius: 4px;
+  cursor: pointer;
+    padding: 6px 12px;
+}
+#disabled-key{
+  pointer-events: none;
 }

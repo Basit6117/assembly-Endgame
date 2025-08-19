@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { languages } from "./languages";
 import { clsx } from "clsx";
@@ -12,17 +12,29 @@ function App() {
     (letter) => !currentWord.includes(letter)
   ).length;
   console.log(wrongGuessCount);
+  const isGameWon = currentWord
+    .split("")
+    .every((letter) => guessedLetter.includes(letter));
+  const isGameLost = wrongGuessCount >= languages.length - 1;
+  const isGameOver = isGameLost || isGameWon;
+  const winLossStatus = clsx("game-status", {
+    won: isGameWon,
+    loss: isGameLost
+  })
   // static
   const keyboard = "abcdefghijklmnopqrstuvwxyz";
 
   const langBadges = languages.map((lang, index) => {
-
-    const isLangLost = index < wrongGuessCount
-    const className = clsx("lang-chip", isLangLost && "lost")
+    const isLangLost = index < wrongGuessCount;
+    const className = clsx("lang-chip", isLangLost && "lost");
     return (
-        <span key={index} className={className} style={{backgroundColor:lang.backgroundColor, color:lang.color}}>
-      {lang.name}
-    </span>
+      <span
+        key={index}
+        className={className}
+        style={{ backgroundColor: lang.backgroundColor, color: lang.color }}
+      >
+        {lang.name}
+      </span>
     );
   });
   const characters = currentWord.split("").map((char, index) => {
@@ -58,7 +70,7 @@ function App() {
   });
 
   return (
-    <>
+    <div className="container">
       <header>
         <h3>Assembly: Endgame</h3>
         <p className="desc">
@@ -67,19 +79,39 @@ function App() {
         </p>
       </header>
       <main>
-        <div className="win-card">
-          <h1>You Win!</h1>
-          <p>Well done 🎉</p>
+        <div className={winLossStatus}>
+          {
+            isGameOver ? (
+              isGameLost ? (
+                <>
+                  <h1>Game Over !</h1>
+                  <p>You loss better start learning assembly 😂</p>
+
+                </>
+              ) : (
+                <>
+                  <h1>You Win!</h1>
+                  <p>Well done 🎉</p>
+                </>
+              )
+            ) : (
+              null
+            )
+          }
         </div>
-         <div className="lost-card">
-          <h1>Game Over !</h1>
-          <p>You loss better start learning assembly 😂</p>
-        </div>
+
         <section className="lang-container">{langBadges}</section>
         <div className="span-container">{characters}</div>
-        <section className="keyboard-container">{keyboardElement}</section>
+        <section
+          id={isGameOver ? "disabled-key" : ""}
+          className="keyboard-container"
+        >
+          {keyboardElement}
+        </section>
+        <br />
+        {isGameOver && <button className="newGame-btn">Start New Game</button>}
       </main>
-    </>
+    </div>
   );
 }
 
