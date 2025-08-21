@@ -20,7 +20,7 @@ function App() {
   const lastGuessed = guessedLetter[guessedLetter.length - 1];
   const incorrectGuessed = lastGuessed && !currentWord.includes(lastGuessed)
 
-  console.log(incorrectGuessed)
+  // console.log(incorrectGuessed)
   const winLossStatus = clsx("game-status", {
     won: isGameWon,
     loss: isGameLost,
@@ -165,7 +165,6 @@ function App() {
         >
           {keyboardElement}
         </section>
-        <br />
         {isGameOver && <button onClick={startNewGame} className="newGame-btn">Start New Game</button>}
       </main>
     </div>
